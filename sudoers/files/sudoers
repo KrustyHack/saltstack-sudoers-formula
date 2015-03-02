@@ -1,3 +1,5 @@
+{{ pillar['headers']['salt']['bash'] -}}
+
 {%- if (not included) %}
   {%- set sudoers = pillar.get('sudoers', {}) %}
   {%- if grains['os_family'] == 'Debian' %}
@@ -40,9 +42,6 @@
 {%- set user_aliases = aliases.get('users', {}) %}
 {%- set command_aliases = aliases.get('commands', {}) %}
 {%- set runas_aliases = aliases.get('runas', {}) -%}
-#
-# This file is managed by salt
-#
 
 # Defaults specification
 {% for default in generic_defaults -%}

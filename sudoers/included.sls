@@ -1,4 +1,4 @@
-{% from "sudoers/map.jinja" import sudoers with context %}
+{% from "sudoers-formula/sudoers/map.jinja" import sudoers with context %}
 
 include:
   - sudoers
@@ -12,7 +12,7 @@ include:
     - group: {{ sudoers.get('group', 'root') }}
     - mode: 440
     - template: jinja
-    - source: salt://sudoers/files/sudoers
+    - source: salt://sudoers-formula/sudoers/files/sudoers
     - context:
         included: True
         sudoers: {{ spec|json }}
